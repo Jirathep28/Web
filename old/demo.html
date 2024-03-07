@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Font Color</title>
+    <style>
+        #text {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <p id="text">Random Font Color</p>
+
+    <script>
+        function getRandomColor() {
+            // Generate random values for red, green, and blue components
+            const r = Math.floor(Math.random() * 256);
+            const g = Math.floor(Math.random() * 256);
+            const b = Math.floor(Math.random() * 256);
+
+            // Create an RGB color string
+            return `rgb(${r}, ${g}, ${b})`;
+        }
+
+        function changeFontColor() {
+            const textElement = document.getElementById('text');
+            const randomColor = getRandomColor();
+
+            // Apply the random color to the font color of the element
+            textElement.style.color = randomColor;
+        }
+
+        // Call the changeFontColor function to set the initial random font color
+        changeFontColor();
+    </script>
+</body>
+</html>

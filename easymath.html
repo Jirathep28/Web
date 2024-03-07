@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MATH PROGRAM</title>
+<style>
+    body {
+      background-image: url('background.jpg');
+      font-family: JasmineUPC, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .header {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 70px;
+      --background-color: #ABEBC6;--
+      color: #333;
+      box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      
+      object-fit: cover;
+      background-color: rgba(171, 235, 198, 0.95);
+    }
+    .timeline {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 70px;
+      background-color: white;
+      box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+    }
+    .event {
+      display: flex;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+    .event-img {
+      width: 200px;
+      height: auto;
+      margin-right: 20px;
+      border-radius: 5px;
+      box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    }
+    .event-text {
+      flex: 1;
+    }
+    h1 {
+      margin: 0;
+      font-size: 65px;
+      color: #333;
+    }
+  
+    h2 {
+      margin: 0;
+      font-size: 24px;
+      color: #333;
+    }
+    p{
+      margin: 10px 0;
+      color: #666;
+    }  
+    
+    p1{
+      font-size: 35px;
+      margin: 10px 0;
+      color: #666;
+    }
+    
+   .button_cal{
+            width: 85px;
+            height: 40px;
+            font-size: 20px;
+            border-radius: 50%;
+            border: none;
+            background-color: #1c3526;
+            color: #fff;
+            cursor: pointer;
+        }
+
+    .result {
+            margin-top: 20px;
+            font-size: 24px;
+    }
+        .CHECK {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 20px;
+            background-color: #df575e;
+            color: #2f0c1e;
+            font-size: 18px;
+            text-decoration: none;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        .ANSWER {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 20px;
+            background-color: #57df75;
+            color: #2f0c1e;
+            font-size: 18px;
+            text-decoration: none;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+      .NEW {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 20px;
+            background-color: #1bcedb;
+            color: #2f0c1e;
+            font-size: 18px;
+            text-decoration: none;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        .tavel {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 20px;
+            background-color: #e5bfca;
+            color: #c36161;
+            font-size: 18px;
+            text-decoration: none;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+          }
+  .food {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 20px;
+            background-color: #b6eae6;
+            color: #0d3142;
+            font-size: 18px;
+            text-decoration: none;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+  .Educational {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 20px;
+            background-color: #d3e29d;
+            color: #6a9f75;
+            font-size: 18px;
+            text-decoration: none;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }        
+  .home {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 20px;
+            background-color: #dee97e;
+            color: #333619;
+            font-size: 18px;
+            text-decoration: none;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        .Profile {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 20px;
+            background-color: #6e79dd;
+            color: #221936;
+            font-size: 18px;
+            text-decoration: none;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+               
+
+        #result {
+            font-size: 100px;
+        }
+
+        /* สไตล์ของเครื่องหมายถูกและผิด */
+        .checkmark {
+            font-size: 40px;
+            display: none;
+            /* ซ่อนตอนเริ่มต้น */
+        }
+
+        .correct {
+            color: green;
+        }
+
+        .incorrect {
+            color: red;
+        }
+
+        #answerInput {
+            font-size: 50px;
+        }
+
+        #answerInput2 {
+            font-size: 50px;
+        }
+
+        /*ทำให้อยู่บรรทัดเดียวกันด้วย css*/
+        #result1, #result2, #result3, #result4, #result5{
+        display: inline;
+        font-size: 100px;
+    }
+
+  </style>
+</head>
+
+
+
+<body>
+  <div class="header"><h1>★ MATH PROGRAM ❀</h1></div>
+<div class="calculator">
+  
+
+
+
+<div class="timeline">
+
+<div class="timeline">
+
+
+<!-- ปุ่ม New -->
+<button id="generateBtn" class="NEW">New</button>
+<p2 id="result" style="color: white;"></p2>
+<br>
+
+<!-- Random -->
+
+
+<p id="result1"></p>
+<p id="result2"></p>
+<p id="result3"></p>
+<p id="result4"></p>
+<p id="result5"></p>
+
+<br>
+<input type="number" id="answerInput" 
+placeholder="Enter your answer" style="width: 420px; height: 80px;">
+
+
+<!-- เครื่องหมาย ถูกผิด-->
+<span class="checkmark correct">&#10004;</span>
+<span class="checkmark incorrect">&#10006;</span>
+<br>
+
+<!-- ปุ่มถูก ผิด -->
+<br><button id="check" class="CHECK">Check</button>
+<button id="Answer" class="ANSWER">Answer</button>
+<br>
+
+<br> <input type="number" id="answerInput2" 
+placeholder="Answer" style="width: 420px; height: 80px;">
+
+</div>
+
+ 
+<br>
+<br><br>
+<div class="event">
+<a href="me.html" ><button class="home">HOME PAGE</button></a>
+<a href="Profile.html" ><button class="Profile">PROFILE PAGE</button></a>
+<a href="tavel.html" ><button class="tavel">TAVEL PAGE</button></a>
+<a href="food.html" ><button class="food">FOOD PAGE</button></a><br><br>
+<a href="Educational.html" ><button class="Educational">EDUCATIONAL PAGE</button></a>
+</div>
+</div>
+</div>
+</div>
+<script>
+    $(document).ready(function () {
+
+        // เมื่อคลิกปุ่ม "Check"
+        $("#check").click(function () {
+            // รับคำตอบที่ผู้ใช้ป้อน
+            var userAnswer = $("#answerInput").val();
+
+            // ดึงข้อความผลลัพธ์ที่แสดงอยู่
+            var resultText = $("#result").text();
+
+            // แยกข้อความผลลัพธ์เพื่อดึงเลขสุ่มและตัวดำเนินการออกมา
+            var parts = resultText.split(" ");
+            var number1 = parseInt(parts[0]);
+            var operator = parts[1];
+            var number2 = parseInt(parts[2]);
+
+            // คำนวณผลลัพธ์จริง
+            var realResult;
+            if (operator === '+') {
+                realResult = number1 + number2;
+            } else if (operator === '-') {
+                realResult = number1 - number2;
+            }
+
+            // เปรียบเทียบคำตอบของผู้ใช้กับคำตอบที่ถูกต้องและแสดงผล
+            if (parseInt(userAnswer) === realResult) {
+                $(".checkmark").hide(); // ซ่อนทุกเครื่องหมาย
+                $(".correct").show(); // แสดงเครื่องหมายถูก
+                $(".incorrect").hide(); // ซ่อนเครื่องหมายกากบาท
+            } else {
+                $(".checkmark").hide(); // ซ่อนทุกเครื่องหมาย
+                $(".correct").hide(); // ซ่อนเครื่องหมายถูก
+                $(".incorrect").show(); // แสดงเครื่องหมายกากบาท
+            }
+        });
+
+
+
+        // เมื่อคลิกปุ่ม "Answer"
+        $("#Answer").click(function () {
+            // ดึงข้อความผลลัพธ์ที่แสดงอยู่
+            var resultText = $("#result").text();
+
+            // แยกข้อความผลลัพธ์เพื่อดึงเลขสุ่มและตัวดำเนินการออกมา
+            //เลขแรก
+            var parts = resultText.split(" ");
+
+            var number1 = parseInt(parts[0]);
+            var operator = parts[1];
+            var number2 = parseInt(parts[2]);
+
+            // คำนวณผลลัพธ์จริง
+            var realResult;
+            if (operator === '+') {
+                realResult = number1 + number2;
+            } else if (operator === '-') {
+                realResult = number1 - number2;
+            }
+
+            // แสดงผลลัพธ์ที่ถูกต้องใน input ที่มี id="answerInput2"
+            $("#answerInput2").val(realResult);
+        });
+
+
+
+        // เมื่อคลิกปุ่ม "New"
+        $("#generateBtn").click(function () {
+            // สร้างเลขสุ่มระหว่าง 0-99
+            var randomNumber1 = Math.floor(Math.random() * 100);
+            var randomNumber2 = Math.floor(Math.random() * 100);
+
+            // สร้างเครื่องหมาย + หรือ -
+            var operators = ['+', '-'];
+            var randomOperator = operators[Math.floor(Math.random() * operators.length)];
+
+            // แสดงผลลัพธ์
+            var resultText = randomNumber1 + " " + randomOperator + " " + randomNumber2 + " = ? ";
+            var resultText1 = randomNumber1 + " " ;
+            var resultText2 = randomOperator + " " ;
+            var resultText3 = randomNumber2 + " " ;
+            var resultText4 = " = ";
+            var resultText5 = "? ";
+            $("#result").text(resultText);
+            $("#result1").text(resultText1);
+            $("#result2").text(resultText2);
+            $("#result3").text(resultText3);
+            $("#result4").text(resultText4);
+            $("#result5").text(resultText5);
+        });
+
+
+
+        //เปลี่ยนสีAnswer
+        function getRandomColor() {
+            // Generate random values for red, green, and blue components
+            const r = Math.floor(Math.random() * 256);
+            const g = Math.floor(Math.random() * 256);
+            const b = Math.floor(Math.random() * 256);
+
+            // Create an RGB color string
+            return `rgb(${r}, ${g}, ${b})`;
+        }
+        function changeFontColor() {
+            const textElement = document.getElementById('answerInput');
+            const randomColor = getRandomColor();
+            // Apply the random color to the font color of the element
+            textElement.style.color = randomColor;
+        }
+        // Call the changeColor function to set the initial random color
+        changeFontColor();
+
+        //เปลี่ยนสีyourAnswer
+        function getRandomColor1() {
+            // Generate random values for red, green, and blue components
+            const r = Math.floor(Math.random() * 256);
+            const g = Math.floor(Math.random() * 256);
+            const b = Math.floor(Math.random() * 256);
+
+            // Create an RGB color string
+            return `rgb(${r}, ${g}, ${b})`;
+        }
+        function changeFontColor1() {
+            const textElement = document.getElementById('answerInput2');
+            const randomColor = getRandomColor1();
+            // Apply the random color to the font color of the element
+            textElement.style.color = randomColor;
+        }
+        // Call the changeColor function to set the initial random color
+        changeFontColor1();
+
+
+
+        //เปลี่ยนสีเลขตัวแรก
+        function getRandomColor10() {
+            // Generate random values for red, green, and blue components
+            const r = Math.floor(Math.random() * 256);
+            const g = Math.floor(Math.random() * 256);
+            const b = Math.floor(Math.random() * 256);
+
+            // Create an RGB color string
+            return `rgb(${r}, ${g}, ${b})`;
+        }
+        function changeFontColor10() {
+            const textElement = document.getElementById('result1');
+            const randomColor = getRandomColor10();
+            // Apply the random color to the font color of the element
+            textElement.style.color = randomColor;
+        }
+        // Call the changeColor function to set the initial random color
+        changeFontColor10();
+
+        //เปลี่ยนสีเครื่องหมาย
+        function getRandomColor11() {
+            // Generate random values for red, green, and blue components
+            const r = Math.floor(Math.random() * 256);
+            const g = Math.floor(Math.random() * 256);
+            const b = Math.floor(Math.random() * 256);
+
+            // Create an RGB color string
+            return `rgb(${r}, ${g}, ${b})`;
+        }
+        function changeFontColor11() {
+            const textElement = document.getElementById('result2');
+            const randomColor = getRandomColor11();
+            // Apply the random color to the font color of the element
+            textElement.style.color = randomColor;
+        }
+        // Call the changeColor function to set the initial random color
+        changeFontColor11();
+
+        //เปลี่ยนสีเลขตัวที่สอง
+        function getRandomColor12() {
+            // Generate random values for red, green, and blue components
+            const r = Math.floor(Math.random() * 256);
+            const g = Math.floor(Math.random() * 256);
+            const b = Math.floor(Math.random() * 256);
+
+            // Create an RGB color string
+            return `rgb(${r}, ${g}, ${b})`;
+        }
+        function changeFontColor12() {
+            const textElement = document.getElementById('result3');
+            const randomColor = getRandomColor12();
+            // Apply the random color to the font color of the element
+            textElement.style.color = randomColor;
+        }
+        // Call the changeColor function to set the initial random color
+        changeFontColor12();
+
+        //เปลี่ยนสีเครื่องหมาย =
+        function getRandomColor13() {
+            // Generate random values for red, green, and blue components
+            const r = Math.floor(Math.random() * 256);
+            const g = Math.floor(Math.random() * 256);
+            const b = Math.floor(Math.random() * 256);
+
+            // Create an RGB color string
+            return `rgb(${r}, ${g}, ${b})`;
+        }
+        function changeFontColor13() {
+            const textElement = document.getElementById('result4');
+            const randomColor = getRandomColor13();
+            // Apply the random color to the font color of the element
+            textElement.style.color = randomColor;
+        }
+        // Call the changeColor function to set the initial random color
+        changeFontColor13();
+
+        //เปลี่ยนสีเครื่องหมาย ?
+        function getRandomColor14() {
+            // Generate random values for red, green, and blue components
+            const r = Math.floor(Math.random() * 256);
+            const g = Math.floor(Math.random() * 256);
+            const b = Math.floor(Math.random() * 256);
+
+            // Create an RGB color string
+            return `rgb(${r}, ${g}, ${b})`;
+        }
+        function changeFontColor14() {
+            const textElement = document.getElementById('result5');
+            const randomColor = getRandomColor14();
+            // Apply the random color to the font color of the element
+            textElement.style.color = randomColor;
+        }
+        // Call the changeColor function to set the initial random color
+        changeFontColor14();
+
+        
+    });
+</script>
+
+</div>
+
+</body>
+</html>

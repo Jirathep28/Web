@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CALCULATOR PROGRAM</title>
+<style>
+    body {
+      background-image: url('background.jpg');
+      font-family: JasmineUPC, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .header {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 70px;
+      --background-color: #ABEBC6;--
+      color: #333;
+      box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      
+      object-fit: cover;
+      background-color: rgba(171, 235, 198, 0.95);
+    }
+    .timeline {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 70px;
+      background-color: white;
+      box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+    }
+    .event {
+      display: flex;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+    .event-img {
+      width: 200px;
+      height: auto;
+      margin-right: 20px;
+      border-radius: 5px;
+      box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    }
+    .event-text {
+      flex: 1;
+    }
+    h1 {
+      margin: 0;
+      font-size: 65px;
+      color: #333;
+    }
+  
+    h2 {
+      margin: 0;
+      font-size: 24px;
+      color: #333;
+    }
+    p{
+      margin: 10px 0;
+      color: #666;
+    }  
+    
+    p1{
+      font-size: 35px;
+      margin: 10px 0;
+      color: #666;
+    }
+    
+   .button_cal{
+            width: 85px;
+            height: 40px;
+            font-size: 20px;
+            border-radius: 50%;
+            border: none;
+            background-color: #1c3526;
+            color: #fff;
+            cursor: pointer;
+        }
+
+    .result {
+            margin-top: 20px;
+            font-size: 24px;
+    }
+    .BACK {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 20px;
+            background-color: #df575e;
+            color: #2f0c1e;
+            font-size: 18px;
+            text-decoration: none;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+      .NEXT {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 20px;
+            background-color: #1bcedb;
+            color: #2f0c1e;
+            font-size: 18px;
+            text-decoration: none;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        .tavel {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 20px;
+            background-color: #e5bfca;
+            color: #c36161;
+            font-size: 18px;
+            text-decoration: none;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+          }
+  .food {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 20px;
+            background-color: #b6eae6;
+            color: #0d3142;
+            font-size: 18px;
+            text-decoration: none;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+  .Educational {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 20px;
+            background-color: #d3e29d;
+            color: #6a9f75;
+            font-size: 18px;
+            text-decoration: none;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }        
+  .home {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 20px;
+            background-color: #dee97e;
+            color: #333619;
+            font-size: 18px;
+            text-decoration: none;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        .Profile {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 20px;
+            background-color: #6e79dd;
+            color: #221936;
+            font-size: 18px;
+            text-decoration: none;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        
+  </style>
+</head>
+
+
+
+<body>
+  <div class="header"><h1>★ CALCULATOR PROGRAM ❀</h1></div>
+<div class="calculator">
+  
+
+
+
+<div class="timeline">
+
+<div class="timeline">
+
+<center><input type= "text" id="num1"size=5 placeholder="Number">
+<select id="operator" name="operator">
+    <option value="+">PLUS(+)</option>
+    <option value="-">MINUS(-)</option>
+    <option value="*">MULTIPLY(*)</option>
+    <option value="/">DIVIDE(/)</option>
+    <option value="%">MOD(%)</option>
+  </select>
+
+<input type= "text" id="num2" size=5 placeholder="Number"> 
+<button id="calculate-button" class="button_cal">คำนวณ</button> =
+<input type="text" id="num3" size="6">
+<br><div id="result" class="result"></div>
+</div>
+ 
+<br>
+<br><br>
+<div class="event">
+<a href="me.html" ><button class="home">HOME PAGE</button></a>
+<a href="Profile.html" ><button class="Profile">PROFILE PAGE</button></a>
+<a href="tavel.html" ><button class="tavel">TAVEL PAGE</button></a>
+<a href="food.html" ><button class="food">FOOD PAGE</button></a><br><br>
+<a href="Educational.html" ><button class="Educational">EDUCATIONAL PAGE</button></a>
+
+</div>
+</div>
+</div>
+
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $("#calculate-button").click(function(){
+      const number1 = parseFloat($("#num1").val());
+      const operator = $("#operator").val();
+      const number2 = parseFloat($("#num2").val());
+      let result = '';
+
+      switch (operator) {
+        case '*':
+          result = number1 * number2;
+          break;
+        case '/':
+          result = number1 / number2;
+          break;
+        case '+':
+          result = number1 + number2;
+          break;
+        case '-':
+          result = number1 - number2;
+          break;
+        case "%":
+          result = number1 % number2;
+          break;
+        default:
+          result = 'กรุณาเลือกเครื่องหมาย';
+      }
+
+      $("#num3").val(result);
+      $("#result").text(`ผลลัพธ์: ${result}`);
+    });
+  });
+
+  /*
+  $(document).ready(function(){
+    $("#num1").change(function(){
+      var num1 = Number($("#num1").val());
+      var op = Number($("#op").val());
+      var num2 = Number($("#num2").val());
+      if(Number($("#op").val())==1){
+        var result = num1 + num2;
+      }else if (Number($("#op").val())==2){
+        var result = num1 - num2;
+      }else if (Number($("#op").val())==3){
+        var result = num1 * num2;
+      }else if (Number($("#op").val())==4){
+        var result = num1 / num2;
+      }else if (Number($("#op").val())==5){
+        var result = num1 % num2;
+      }
+      $("#num3").val(result);
+    })
+  });
+  
+  $(document).ready(function(){
+    $("#num2").change(function(){
+      var num1 = Number($("#num1").val());
+      var op = $("#op").val();
+      var num2 = Number($("#num2").val());
+      if(Number($("#op").val())==1){
+        var result = num1 + num2;
+      }else if (Number($("#op").val())==2){
+        var result = num1 - num2;
+      }else if (Number($("#op").val())==3){
+        var result = num1 * num2;
+      }else if (Number($("#op").val())==4){
+        var result = num1 / num2;
+      }else if (Number($("#op").val())==5){
+        var result = num1 % num2;
+      }
+      $("#num3").val(result);
+    })
+  });*/
+  
+  
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  /* สไตล์สำหรับรูปแบบดาว */
+  .star-pattern {
+    font-size: 24px;
+    line-height: 1;
+  }
+</style>
+</head>
+<body>
+
+<button onclick="createStarPattern()">สร้างรูปแบบแบบดาว</button>
+<p id="star-pattern"></p>
+
+<script>
+function createStarPattern() {
+  let rows = parseInt(prompt("กรุณาป้อนจำนวนแถว:"));
+  let pattern = "";
+  
+  if (isNaN(rows)) {
+    pattern = "โปรดป้อนจำนวนที่ถูกต้อง";
+  } else {
+    for (let i = 1; i <= rows; i++) {
+      for (let j = 1; j <= i; j++) {
+        pattern += "* ";
+      }
+      pattern += "<br>";
+    }
+  }
+  
+  document.getElementById("star-pattern").innerHTML = pattern;
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Palindrome Check</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+</head>
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        background-image: url('bg_pink.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center center;
+    }
+
+    form {  
+            padding: 40px;
+            border-radius: 0px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 900px;
+    }
+
+    input {
+        width: 300px;
+	height: 50px;
+        padding: 10px;
+        margin-bottom: 20px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+	text-align: center;
+	 font-size: 25px;
+	font-family: 'Courier New', monospace;
+
+    }
+
+    button {
+        background-color: palevioletred; 
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        align-items: center;
+        font-family: 'Courier New', monospace;
+    }
+
+    div {
+        
+        padding: 20px;
+        border-radius: 0px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        width: 950px;
+        font-family: 'Courier New', monospace;
+        font-size: 20px;
+        font-weight: bold;
+    }
+h1{
+font-family: 'Courier New', monospace;
+        font-size: 60px;
+        text-shadow: 3px 3px 3px #ababab;
+}
+</style>
+
+<body>
+     <h1>Palindrome Check</h1>
+    <form method="post" action="/usr/u07610637/palindrome.php">    
+        <input type="text" name="user_input" id="text_input" oninput="updateOutput()" required>
+         <input type="text" id="output" disabled><br>
+        <button type="submit" name="check_button">Check Palindeome</button>
+    </form>
+    <script>
+        function updateOutput() {
+            const userInput = document.getElementById('text_input').value;
+            const reversedText = userInput.split('').reverse().join('');
+            document.getElementById('output').value = reversedText;
+        }
+    </script>
+
+    </body>
+
+</html>

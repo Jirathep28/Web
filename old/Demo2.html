@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo2</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        
+
+        #result {
+            font-size: 100px;
+        }
+
+        /* สไตล์ของเครื่องหมายถูกและผิด */
+        .checkmark {
+            font-size: 40px;
+            display: none;
+            /* ซ่อนตอนเริ่มต้น */
+        }
+
+        .correct {
+            color: green;
+        }
+
+        .incorrect {
+            color: red;
+        }
+
+        #answerInput {
+            font-size: 50px;
+        }
+
+        #answerInput2 {
+            font-size: 50px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- ปุ่ม New -->
+    <button id="generateBtn">New</button>
+
+    <!-- Random -->
+    <p id="result"></p>
+
+    <input type="number" id="answerInput" placeholder="Enter your answer" style="width: 420px; height: 80px;">
+
+    <!-- เครื่องหมาย ถูกผิด-->
+    <span class="checkmark correct">&#10004;</span>
+    <span class="checkmark incorrect">&#10006;</span>
+
+    <!-- ปุ่มถูก ผิด -->
+    <br><button id="check">Check</button>
+    <button id="Answer">Answer</button>
+
+    
+    <br> <input type="number" id="answerInput2" placeholder="Answer" style="width: 420px; height: 80px;">
+
+
+    <script>
+        $(document).ready(function () {
+
+            // เมื่อคลิกปุ่ม "Check"
+            $("#check").click(function () {
+                // รับคำตอบที่ผู้ใช้ป้อน
+                var userAnswer = $("#answerInput").val();
+
+                // ดึงข้อความผลลัพธ์ที่แสดงอยู่
+                var resultText = $("#result").text();
+
+                // แยกข้อความผลลัพธ์เพื่อดึงเลขสุ่มและตัวดำเนินการออกมา
+                var parts = resultText.split(" ");
+                var number1 = parseInt(parts[0]);
+                var operator = parts[1];
+                var number2 = parseInt(parts[2]);
+
+                // คำนวณผลลัพธ์จริง
+                var realResult;
+                if (operator === '+') {
+                    realResult = number1 + number2;
+                } else if (operator === '-') {
+                    realResult = number1 - number2;
+                }
+
+                // เปรียบเทียบคำตอบของผู้ใช้กับคำตอบที่ถูกต้องและแสดงผล
+                if (parseInt(userAnswer) === realResult) {
+                    $(".checkmark").hide(); // ซ่อนทุกเครื่องหมาย
+                    $(".correct").show(); // แสดงเครื่องหมายถูก
+                    $(".incorrect").hide(); // ซ่อนเครื่องหมายกากบาท
+                } else {
+                    $(".checkmark").hide(); // ซ่อนทุกเครื่องหมาย
+                    $(".correct").hide(); // ซ่อนเครื่องหมายถูก
+                    $(".incorrect").show(); // แสดงเครื่องหมายกากบาท
+                }
+            });
+
+
+
+            // เมื่อคลิกปุ่ม "Answer"
+            $("#Answer").click(function () {
+                // ดึงข้อความผลลัพธ์ที่แสดงอยู่
+                var resultText = $("#result").text();
+
+                // แยกข้อความผลลัพธ์เพื่อดึงเลขสุ่มและตัวดำเนินการออกมา
+                var parts = resultText.split(" ");
+                var number1 = parseInt(parts[0]);
+                var operator = parts[1];
+                var number2 = parseInt(parts[2]);
+
+                // คำนวณผลลัพธ์จริง
+                var realResult;
+                if (operator === '+') {
+                    realResult = number1 + number2;
+                } else if (operator === '-') {
+                    realResult = number1 - number2;
+                }
+
+                // แสดงผลลัพธ์ที่ถูกต้องใน input ที่มี id="answerInput2"
+                $("#answerInput2").val(realResult);
+            });
+
+
+
+            // เมื่อคลิกปุ่ม "New"
+            $("#generateBtn").click(function () {
+                // สร้างเลขสุ่มระหว่าง 0-99
+                var randomNumber1 = Math.floor(Math.random() * 100);
+                var randomNumber2 = Math.floor(Math.random() * 100);
+
+                // สร้างเครื่องหมาย + หรือ -
+                var operators = ['+', '-'];
+                var randomOperator = operators[Math.floor(Math.random() * operators.length)];
+
+                // แสดงผลลัพธ์
+                var resultText = randomNumber1 + " " + randomOperator + " " + randomNumber2 + " = ? ";
+                $("#result").text(resultText);
+
+
+            });
+        });
+    </script>
+
+</body>
+
+</html>
